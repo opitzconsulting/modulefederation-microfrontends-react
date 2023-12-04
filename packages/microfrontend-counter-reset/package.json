@@ -1,14 +1,14 @@
 {
-  "name": "microfrontend-main",
+  "name": "microfrontend-counter-reset",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --port 5000 --strictPort",
+    "dev": "vite --port 5001 --strictPort",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview --port 5000 --strictPort",
-    "serve": "serve dist  -l 5000 -n"
+    "preview": "vite preview --port 5001 --strictPort",
+    "serve": "serve dist  -l 5001 -n --cors"
   },
   "dependencies": {
     "react": "^18.2.0",

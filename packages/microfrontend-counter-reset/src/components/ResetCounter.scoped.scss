@@ -1,0 +1,20 @@
+.resetCounter {
+  border: white 1px solid;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 300px;
+  color: white;
+  button {
+    padding: 10px;
+    width: 100%;
+    background-color: #222;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    &:hover {
+      background-color: #555;
+    }
+  }
+}

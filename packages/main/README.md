@@ -1,11 +1,11 @@
-# `main`
+Dies ist das "Haupt"-Frontend.
+Siehe [microfrontend README](../microfrontend-counter-reset/README.md) für das Microfrontend.
 
-> TODO: description
+In der `vite.config.ts` wird das `@originjs/vite-plugin-federation` Plugin konfiguriert. Es ist für das Einbinden der Microfrontends zuständig.
 
-## Usage
-
+Im `remotes`-Record werden Namen (`frontendComponentReset`) einer Entry-Datei zugeordnet. Danach kann es über folgenden Import eingebunden werden:
+```ts
+// @ts-ignore
+import ResetCounter from "frontendComponentReset/ResetCounter"
 ```
-const main = require('main');
-
-// TODO: DEMONSTRATE API
-```
+Wie im Code-Block zu sehen ist, kann Typescript mit diesem Import wenig anfangen. Der Import wird nicht erkannt, und es gibt auch somit keine Typ-Informationen über das Microfrontend.
