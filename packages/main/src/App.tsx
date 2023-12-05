@@ -3,13 +3,20 @@ import { Suspense, useState } from 'react'
 import './App.scoped.scss'
 import "./App.scss"
 
-// @ts-expect-error 
-import ResetCounter from "frontendComponentReset/ResetCounter"
-import React from 'react'
+//import ResetCounter from "frontendComponentReset/ResetCounter"
+import {lazy} from 'react'
 
-// @ts-expect-error 
-const LazyResetCounter = React.lazy(() => import("frontendComponentReset/ResetCounter"))
 
+
+//const LazyResetCounter = React.lazy(() => import("http://localhost:5001/assets/__federation_expose_ResetCounter-Ppim9CBk.js"))
+
+// Hier wird ein Lokales Modul importiert.
+// Im Vite Build gibt es einen alias, welcher 
+// `@microfrontend/tsc-library/dist/`
+// durch
+// `http://localhost:5002/`
+// für den Build tauscht.
+const LazyCounterDouble = lazy( () => import("@microfrontend/tsc-library/dist/CounterDouble.js") )
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,9 +34,12 @@ function App() {
       </div>
       <hr/>
       <main>
-        <ResetCounter counter={count} setCounter={setCount} />
-        <Suspense fallback={<div>Loading...</div>}>
+        {/* <ResetCounter counter={count} setCounter={setCount} /> */}
+        {/* <Suspense fallback={<div>Loading...</div>}>
           <LazyResetCounter counter={count} setCounter={setCount} />
+        </Suspense> */}
+        <Suspense fallback={<div>Loading...</div>}>
+          <LazyCounterDouble counter={count} setCounter={setCount} />
         </Suspense>
       </main>
     </div>
