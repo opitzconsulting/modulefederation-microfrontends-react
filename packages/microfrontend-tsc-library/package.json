@@ -1,0 +1,32 @@
+{
+  "name": "@microfrontend/tsc-library",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "build": "tsup src/CounterDouble.tsx src/index.ts --format esm --dts",
+    "build-backup": "tsup src/CounterDouble.tsx src/index.ts --format esm --external react/jsx-runtime --dts",
+    "serve": "serve dist  -l 5002 -n --cors"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    "./dist/CounterDouble.js": {
+      "default": "./dist/CounterDouble.js",
+      "types": "./dist/CounterDouble.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "package.json"
+  ],
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.1"
+  }
+}
